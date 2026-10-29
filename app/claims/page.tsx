@@ -1,15 +1,12 @@
-'use client'
 import ClaimsList from "@/components/claims/ClaimsList";
-import { useSearchParams } from "next/navigation";
 
-function ClaimsPage() {
-const searchParams = useSearchParams();
-const userId = searchParams.get('userId');
-console.log('userId', userId)
+async function ClaimsPage({ searchParams }: { searchParams: Promise<{ userId?: string }> }) {
+    const params = await searchParams;
+    const userId = params.userId;
 
     return (
-        <div>
-            <ClaimsList userId={userId} />
+        <div className="mx-auto max-w-xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <ClaimsList userId={userId ?? null} />
         </div>
     )
 }
