@@ -48,22 +48,52 @@ function ClaimsList({ userId }: { userId: string | null }) {
   }, [userId]);
 
   // If no userId is provided, prompt the user to select a demo user.
-  if (!userId) return <p>Please select a demo user to view claims.</p>;
+  if (!userId) {
+    return (
+      <div className="rounded-2xl border border-gray-300 bg-white p-6 text-center">
+        <p className="text-gray-600">Please select a demo user to view claims.</p>
+      </div>
+    );
+  }
 
   // Loading state
-  if (loading) return <p>Loading claims...</p>;
+  if (loading) {
+    return (
+      <div className="rounded-2xl border border-gray-300 bg-white p-6 text-center">
+        <p className="text-gray-600">Loading claims...</p>
+      </div>
+    );
+  }
 
   // Error state
-  if (error) return <p>An error occurred. Please try again later.</p>;
+  if (error) {
+    return (
+      <div className="rounded-2xl border border-gray-300 bg-white p-6 text-center">
+        <p className="text-red-600">An error occurred. Please try again later.</p>
+      </div>
+    );
+  }
 
   // Empty state
-  if (claims.length === 0) return <p>No claims found.</p>;
+  if (claims.length === 0) {
+    return (
+      <div className="rounded-2xl border border-gray-300 bg-white p-6 text-center">
+        <p className="text-gray-600">No claims found.</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-2xl font-bold">Claims</h1>
-      {claims.map((claim) => <ClaimCard key={claim.id} claim={claim} />)}
-    </div>
+    <section>
+      <div className="mb-6">
+        <h1 className="text-3xl text-center font-bold tracking-tight text-gray-900">Claims</h1>
+        <p className="mt-2 text-center text-gray-900">Review your healthcare claims, costs, and payment details</p>
+      </div>
+
+      <div className="space-y-4">
+        {claims.map((claim) => <ClaimCard key={claim.id} claim={claim} />)}
+      </div>
+    </section>
   );
 }
 

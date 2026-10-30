@@ -1,5 +1,9 @@
 import formatCurrency from "@/lib/claims/formatCurrency";
+import formatDate from "@/lib/claims/formatDate";
 
+/**
+ * Returns the styles used to display each claim status.
+ */
 function getStatusStyles(status: string) {
   switch (status) {
     case "approved":
@@ -25,55 +29,47 @@ interface ClaimHeaderProps {
   patientResponsibility: string | null;
 }
 
+/**
+ * Displays the main claim information, including the service, provider, 
+ * status, insurance information, and patient responsibility.
+ * Used by ClaimDetailPage component to show the header information for a specific claim.
+ */
 function ClaimHeader({ claim }: { claim: ClaimHeaderProps }) {
-  console.log('claim data', claim);
-
   return (
-    <div className="border rounded-2xl p-6 bg-white shadow-sm">
-      <div className="flex justify-between items-start">
+    <section className="rounded-2xl border border-gray-300 bg-white text-gray-900 p-6 shadow-sm">
+      <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">
-            {claim.service}
-          </h1>
-
-          <p className="text-gray-500 mt-1">
-            {claim.providerName || "Unknown provider"}
-          </p>
+          <h1 className="text-2xl font-bold">{claim.service}</h1>
+          <p className="mt-1 text-gray-600">{claim.providerName || "Unknown provider"}</p>
         </div>
 
-        <span
-          className={`px-3 py-1 rounded-full text-sm ${getStatusStyles(claim.status)}`}
-        >
+        <span className={`shrink-0 rounded-full px-3 py-1 text-sm ${getStatusStyles(claim.status)}`}>
           {claim.status.charAt(0).toUpperCase() + claim.status.slice(1)}
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-6 text-sm">
+      <div className="mt-6 grid grid-cols-1 gap-4 text-[15px] sm:grid-cols-2">
         <div>
-          <p className="text-gray-500">Claim Number</p>
+          <p className="font-semibold">Claim Number:</p>
           <p className="font-medium">{claim.claimNumber}</p>
         </div>
 
         <div>
-          <p className="text-gray-500">Service Date</p>
-          <p className="font-medium">{claim.serviceDate}</p>
+          <p className="font-semibold">Service Date:</p>
+          <p className="font-medium">{formatDate(claim.serviceDate)}</p>
         </div>
 
         <div>
-          <p className="text-gray-500">Insurance</p>
-          <p className="font-medium">
-            {claim.insuranceProvider}
-          </p>
+          <p className="font-semibold">Insurance:</p>
+          <p className="font-medium">{claim.insuranceProvider || "Not available"}</p>
         </div>
 
         <div>
-          <p className="text-gray-500">Patient Responsibility</p>
-          <p className="font-semibold">
-            {formatCurrency(claim.patientResponsibility)}
-          </p>
+          <p className="font-semibold">Patient Responsibility:</p>
+          <p className="font-medium">{formatCurrency(claim.patientResponsibility)}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

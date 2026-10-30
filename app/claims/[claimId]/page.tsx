@@ -17,7 +17,7 @@ import { notFound } from "next/navigation";
 async function ClaimDetailPage({ params }: { params: Promise<{ claimId: string }> }) {
   const { claimId } = await params;
 
-  // Query the database for the claim with the claimId
+  // Query the database for the claim matching the claimId
   const claimArr = await db
     .select()
     .from(claims)
@@ -31,7 +31,7 @@ async function ClaimDetailPage({ params }: { params: Promise<{ claimId: string }
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 space-y-6">
+    <div className="mx-auto max-w-2xl space-y-6 px-4 py-8 sm:px-6 sm:py-10">
       <ClaimHeader claim={claim} />
       <CostBreakdown claim={claim} />
       <ClaimExplanation claim={claim} />

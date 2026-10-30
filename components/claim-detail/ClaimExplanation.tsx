@@ -67,12 +67,17 @@ function ClaimExplanation({ claim }: CostExplanationProps) {
     }
 
     return (
-        <div>
-            {explanation.map((e, index) => (
-                <p key={index}>{e}</p>
-            ))}
-        </div>
-    )
+        <section className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm">
+            <div className="mb-4">
+                <h2 className="text-xl font-semibold">Claim Explanation</h2>
+                <p className="mt-1 text-[15px] text-gray-600">A summary of how your claim costs were calculated</p>
+            </div>
+
+            <div className="space-y-3 text-base leading-6 text-gray-900">
+                {explanation.map((e, index) => <p key={index}>{e}</p>)}
+            </div>
+        </section>
+    );
 }
 
 export default ClaimExplanation;
