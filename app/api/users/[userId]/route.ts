@@ -4,7 +4,7 @@ import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 /**
- * Returns a single user with public profile fields.
+ * Returns a single user with selected fields.
  */
 export async function GET(
   _request: Request,

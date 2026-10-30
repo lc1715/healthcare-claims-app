@@ -3,7 +3,7 @@ import db from "@/db";
 import { claims, users } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 
-//GET all claims for a single user or all claims
+// Get all claims for a single user if userId is provided, otherwise get all claims
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

@@ -3,7 +3,7 @@ import db from "@/db";
 import { users } from "@/db/schema";
 
 /**
- * Lists all users with public profile fields.
+ * Gets all users with selected fields. 
  */
 export async function GET() {
   try {
