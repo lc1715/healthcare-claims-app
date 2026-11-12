@@ -86,8 +86,8 @@ function ClaimsList({ userId }: { userId: string | null }) {
   return (
     <section>
       <div className="mb-6">
-        <h1 className="text-3xl text-center font-bold tracking-tight text-gray-900">Claims</h1>
-        <p className="mt-2 text-center text-gray-900">Review your healthcare claims, costs, and payment details</p>
+        <h1 className="text-3xl text-center font-bold tracking-tight">Claims</h1>
+        <p className="mt-2 text-center">Review your healthcare claims, costs, and payment details</p>
       </div>
 
       <div className="space-y-4">

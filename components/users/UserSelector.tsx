@@ -71,13 +71,13 @@ function UserSelector() {
               ▼
             </span>
           </div>) : (
-          <p className="text-sm text-gray-500">Loading demo patients...</p>
+          <p className="text-base text-gray-500">Loading demo patients...</p>
         )}
 
         <button
           type="submit"
           disabled={!selectedUserId}
-          className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-300"
+          className="rounded-lg bg-gray-900 px-4 py-2 text-base font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-300"
         >
           View Claims
         </button>

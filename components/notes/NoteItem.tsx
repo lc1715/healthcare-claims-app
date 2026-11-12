@@ -59,15 +59,15 @@ function NoteItem({ note, fetchNotes }: NoteItemProps) {
                         value={editedContent}
                         onChange={(evt) => setEditedContent(evt.target.value)}
                         rows={3}
-                        className="w-full resize-y rounded-lg border border-gray-300 bg-white p-3 text-base leading-6 text-gray-900 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
+                        className="w-full resize-y rounded-lg border border-gray-300 bg-white p-3 text-base leading-6 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
                     />
 
                     <div className="mt-4 flex flex-wrap gap-2">
-                        <button onClick={handleSave} className="rounded-full bg-gray-900 px-4 py-1 text-sm font-medium text-white transition-colors hover:bg-gray-600">
+                        <button onClick={handleSave} className="rounded-full bg-gray-900 px-4 py-1 font-medium text-white transition-colors hover:bg-gray-600">
                             Save
                         </button>
 
-                        <button onClick={() => { setEditedContent(note.content); setIsEditing(false) }} className="rounded-full border border-gray-300 bg-white px-4 py-1 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-100">
+                        <button onClick={() => { setEditedContent(note.content); setIsEditing(false) }} className="rounded-full border border-gray-300 bg-white px-4 py-1 font-medium transition-colors hover:bg-gray-100">
                             Cancel
                         </button>
                     </div>
@@ -78,11 +78,11 @@ function NoteItem({ note, fetchNotes }: NoteItemProps) {
                         <p>{note.content}</p>
 
                         <div className="mt-4 flex flex-wrap gap-2">
-                            <button onClick={() => setIsEditing(true)} className="rounded-full border border-gray-300 bg-white px-4 py-1 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-100">
+                            <button onClick={() => setIsEditing(true)} className="rounded-full border border-gray-300 bg-white px-4 py-1 text-base font-medium transition-colors hover:bg-gray-100">
                                 Edit
                             </button>
 
-                            <button onClick={() => setShowDeleteConfirm(true)} className="rounded-full border border-gray-300 bg-white px-4 py-1 text-sm font-medium text-red-700 transition-colors hover:bg-red-50">
+                            <button onClick={() => setShowDeleteConfirm(true)} className="rounded-full border border-gray-300 bg-white px-4 py-1 text-base font-medium text-red-700 transition-colors hover:bg-red-50">
                                 Delete
                             </button>
                         </div>
@@ -94,11 +94,11 @@ function NoteItem({ note, fetchNotes }: NoteItemProps) {
                                     <p className="mt-2">Are you sure you want to delete this note? This action cannot be undone.</p>
 
                                     <div className="mt-6 flex justify-end gap-3">
-                                        <button onClick={() => setShowDeleteConfirm(false)} className="rounded-full border border-gray-300 bg-white px-4 py-1.5 2xl:text-[15px] font-medium text-gray-900 transition-colors hover:bg-gray-100">
+                                        <button onClick={() => setShowDeleteConfirm(false)} className="rounded-full border border-gray-300 bg-white px-4 py-1.5 font-medium transition-colors hover:bg-gray-100">
                                             Cancel
                                         </button>
 
-                                        <button onClick={handleDelete} className="rounded-full bg-red-600 px-4 py-1.5 2xl:text-[15px] font-medium text-white transition-colors hover:bg-red-700">
+                                        <button onClick={handleDelete} className="rounded-full bg-red-600 px-4 py-1.5 font-medium text-white transition-colors hover:bg-red-700">
                                             Delete
                                         </button>
                                     </div>

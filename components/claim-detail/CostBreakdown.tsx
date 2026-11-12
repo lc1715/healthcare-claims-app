@@ -37,8 +37,8 @@ function CostBreakdown({ claim }: CostBreakdownProps) {
         <section className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm">
             {/* Title */}
             <div className="mb-5">
-                <h2 className="text-xl font-semibold text-gray-900">Cost Breakdown</h2>
-                <p className="mt-1 text-[15px] text-gray-600">See how your healthcare costs were split</p>
+                <h2 className="text-2xl font-semibold">Cost Breakdown</h2>
+                <p className="mt-1">See how your healthcare costs were split</p>
             </div>
 
             {/* Main Costs */}
@@ -53,7 +53,7 @@ function CostBreakdown({ claim }: CostBreakdownProps) {
 
             {/* Patient Responsibility */}
             <div>
-                <h3 className="mb-3 text-lg font-medium text-gray-900">Your Responsibility</h3>
+                <h3 className="mb-3 text-lg font-medium">Your Responsibility</h3>
                 <div className="space-y-1">
                     <BreakdownRow label="Copay" value={claim.copayAmount} />
                     <BreakdownRow label="Applied to Deductible" value={claim.appliedTowardsDeductible} />
@@ -68,8 +68,8 @@ function CostBreakdown({ claim }: CostBreakdownProps) {
             {/* Final Total */}
             <div className="mt-5 border-t border-gray-200 pt-5">
                 <div className="flex items-center justify-between gap-4">
-                    <span className="text-lg font-semibold text-gray-900">Total You Owe</span>
-                    <span className="text-2xl font-bold text-gray-900">{formatCurrency(claim.patientResponsibility)}</span>
+                    <span className="text-lg font-semibold">Total You Owe</span>
+                    <span className="text-2xl font-bold">{formatCurrency(claim.patientResponsibility)}</span>
                 </div>
             </div>
         </section>

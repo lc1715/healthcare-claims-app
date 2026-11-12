@@ -12,7 +12,7 @@ function Navbar() {
             <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
                 <Link href="/" className="shrink-0 text-base font-semibold transition-colors hover:text-gray-600 sm:text-xl">Healthcare Claims</Link>
 
-                <div className="flex shrink-0 items-center gap-3 text-sm sm:gap-6 sm:text-base">
+                <div className="flex shrink-0 items-center gap-3 text-sm sm:text-base sm:gap-6">
                     {userId && (
                         <Link href={`/claims?userId=${userId}`} className="whitespace-nowrap hover:text-gray-600">Claims</Link>
                     )}

@@ -47,10 +47,10 @@ function AddNoteForm({ claimId, userId, fetchNotes }: AddNoteFormProps) {
                 onChange={(evt) => setContent(evt.target.value)}
                 placeholder="Add a note about this claim..."
                 rows={3}
-                className="block w-full resize-y rounded-lg border border-gray-300 bg-white p-3 text-base leading-6 text-gray-900 placeholder:text-gray-500 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
+                className="block w-full resize-y rounded-lg border border-gray-300 bg-white p-3 text-base leading-6 placeholder:text-gray-500 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
             />
 
-            <button type="submit" disabled={saving} className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-60">
+            <button type="submit" disabled={saving} className="rounded-lg bg-gray-900 px-4 py-2 text-base font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-60">
                 {saving ? "Saving..." : "Add Note"}
             </button>
         </form>

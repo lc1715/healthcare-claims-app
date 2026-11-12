@@ -36,11 +36,11 @@ interface ClaimHeaderProps {
  */
 function ClaimHeader({ claim }: { claim: ClaimHeaderProps }) {
   return (
-    <section className="rounded-2xl border border-gray-300 bg-white text-gray-900 p-6 shadow-sm">
+    <section className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold">{claim.service}</h1>
-          <p className="mt-1 text-gray-600">{claim.providerName || "Unknown provider"}</p>
+          <p className="mt-1">{claim.providerName || "Unknown provider"}</p>
         </div>
 
         <span className={`shrink-0 rounded-full px-3 py-1 text-sm ${getStatusStyles(claim.status)}`}>
@@ -48,7 +48,7 @@ function ClaimHeader({ claim }: { claim: ClaimHeaderProps }) {
         </span>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 text-[15px] sm:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-4 text-base sm:grid-cols-2">
         <div>
           <p className="font-semibold">Claim Number:</p>
           <p className="font-medium">{claim.claimNumber}</p>

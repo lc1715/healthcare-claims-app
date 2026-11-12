@@ -85,8 +85,15 @@ export async function POST(request: NextRequest) {
     } catch (error) {
         console.error("Gemini explanation error:", error);
 
+        if (error instanceof Error && "status" in error && error.status === 503) {
+            return NextResponse.json(
+                { error: "The external AI service is temporarily unavailable, possibly due to high demand. Please try again later. You can still review the claim explanation above." },
+                { status: 503 }
+            );
+        }
+
         return NextResponse.json(
-            { error: "The AI explanation is temporarily unavailable." },
+            { error: "The AI explanation is currently unavailable. Please try again later. You can still review the claim explanation above." },
             { status: 500 }
         );
     }

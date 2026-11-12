@@ -50,15 +50,15 @@ function NotesSection({ claimId, userId }: NotesSectionProps) {
     return (
         <section className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm">
             <div className="mb-4">
-                <h2 className="text-xl font-semibold text-gray-900">Notes</h2>
-                <p className="mt-1 text-[15px] text-gray-600">Add and manage notes related to this claim</p>
+                <h2 className="text-2xl font-semibold">Notes</h2>
+                <p className="mt-1">Add and manage notes related to this claim</p>
             </div>
 
             <AddNoteForm claimId={claimId} userId={userId} fetchNotes={fetchNotes} />
 
             <div className="mt-5">
                 {loading ?
-                    <p className="text-sm text-gray-500">Loading notes...</p>
+                    <p className="text-base text-gray-500">Loading notes...</p>
                     :
                     <NotesList notes={notes} fetchNotes={fetchNotes} />}
             </div>
